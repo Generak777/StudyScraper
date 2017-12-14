@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyScraper.Web", "Web\StudyScraper.Web.csproj", "{0EB0C7EE-567E-4327-ADA6-CE16F16BF9F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyScraper.Models", "StudyScraper.Models\StudyScraper.Models.csproj", "{C26E32F5-0E87-496B-9E46-06FD5398EF49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudyScraper.Services", "StudyScraper.Services\StudyScraper.Services.csproj", "{34496051-5737-4072-86E4-AF3E8C695EBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{0EB0C7EE-567E-4327-ADA6-CE16F16BF9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0EB0C7EE-567E-4327-ADA6-CE16F16BF9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0EB0C7EE-567E-4327-ADA6-CE16F16BF9F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26E32F5-0E87-496B-9E46-06FD5398EF49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26E32F5-0E87-496B-9E46-06FD5398EF49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26E32F5-0E87-496B-9E46-06FD5398EF49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26E32F5-0E87-496B-9E46-06FD5398EF49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34496051-5737-4072-86E4-AF3E8C695EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34496051-5737-4072-86E4-AF3E8C695EBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34496051-5737-4072-86E4-AF3E8C695EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34496051-5737-4072-86E4-AF3E8C695EBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
