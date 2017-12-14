@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\ScraperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,6 +238,7 @@
     <Content Include="Scripts\register.controller.js" />
     <Content Include="Scripts\saved.controller.js" />
     <Content Include="Scripts\scraper.controller.js" />
+    <Content Include="Scripts\scraper.service.js" />
     <Content Include="Scripts\study.controller.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -288,6 +290,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudyScraper.Models\StudyScraper.Models.csproj">
+      <Project>{c26e32f5-0e87-496b-9e46-06fd5398ef49}</Project>
+      <Name>StudyScraper.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudyScraper.Services\StudyScraper.Services.csproj">
+      <Project>{34496051-5737-4072-86e4-af3e8c695ebb}</Project>
+      <Name>StudyScraper.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
