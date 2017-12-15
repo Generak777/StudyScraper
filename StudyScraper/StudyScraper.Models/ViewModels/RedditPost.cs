@@ -8,9 +8,7 @@ namespace StudyScraper.Models.ViewModels
 {
     public class RedditPost
     {
-        public List<string> PostTitle { get; set; }
-        public List<string> PostUrl { get; set; }
-        public List<string> StudyTitle { get; set; }
-        public List<string> StudyUrl { get; set; }
+        public string PostTitle { get; set; }
+        public string PostUrl { get; set; }
     }
 }

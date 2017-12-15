@@ -7,11 +7,19 @@
 
     function ScraperService($http, $q) {
         return {
-            getAll: _getAll
+            getAll: _getAll,
+            savePost: _savePost
         }
 
         function _getAll() {
             return $http.get('/api/scraper')
+                .then(success)
+                .catch(error);
+        }
+
+        function _savePost(data) {
+            return $http.post('/api/scraper',
+                data)
                 .then(success)
                 .catch(error);
         }
