@@ -1,68 +1,74 @@
 ﻿using HtmlAgilityPack;
+using StudyScraper.Models.Requests;
 using StudyScraper.Models.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.ModelBinding;
 
 namespace StudyScraper.Services
 {
-    public class RedditScraperService
+    public class RedditScraperService : BaseService
     {
-        public RedditPost GetAll()
+        public RedditPosts GetAll()
         {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
 
-            RedditPost model = new RedditPost();
-            model.PostTitle = new List<string>();
-            model.PostUrl = new List<string>();
-            model.StudyTitle = new List<string>();
-            model.StudyUrl = new List<string>();
+            //instantiate model and the lists inside the model
+            RedditPosts model = new RedditPosts();
+            model.Posts = new List<RedditPost>();
 
-            //assigning url to model
+            //assigning url to the string
             string url = "https://www.reddit.com/r/Nootropics/search?q=flair%3A%22Scientific+Study%22+OR+site%3Ancbi.nlm.nih.gov&restrict_sr=on&sort=new&t=all";
 
-            //loading html from provided url
+            //instantiating loading HtmlWeb from provided url
             var htmlWeb = new HtmlWeb();
             HtmlDocument document = null;
-            try
+            document = htmlWeb.Load(url);
+
+            //getting desired post titles and links from page
+            var anchorTags = document.DocumentNode.Descendants("a")
+                .Where(d => d.Attributes.Contains("class") && d.Attributes["class"].Value.Contains("search-title"));
+
+            //looping through the variable and assigning the desired values to my model
+            foreach (var node in anchorTags)
             {
-                document = htmlWeb.Load(url);
-                //getting post titles from page
-                var postTitleNodes = document.DocumentNode.SelectNodes("//a");
-
-                foreach(var node in postTitleNodes)
-                {
-                    var result = node.InnerHtml;
-                    var postTitles = result;
-                }
-
-                ////adding URLs to list
-                //if (postTitles != null)
-                //{
-                //    List<string> list = postTitles.ToList();
-
-                //    //looping through URL list and putting the first 5 into the model
-                //    int i = 1;
-                //    foreach (var item in list)
-                //    {
-                //        model.PostTitle.Add(item);
-                //        if (++i > 10) break; // for breavity
-                //    }
-                //}
+                RedditPost item = new RedditPost();
+                item.PostTitle = node.InnerText;
+                item.PostUrl = node.GetAttributeValue("href", null);
+                //item is pushed to model list
+                model.Posts.Add(item);
             }
-            catch (Exception ex)
-            {
-                string str = ex.ToString();
-                model.PostTitle.Add(str);
-                model.PostUrl.Add(str);
-                model.StudyTitle.Add(str);
-                model.StudyUrl.Add(str);
-                return model;
-            }
+            //returning model
             return model;
+        }
+
+        public int SavePost(SavePostRequest model)
+        {
+            int id = 0;
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("RedditPosts_Insert", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Title", model.Title);
+                    cmd.Parameters.AddWithValue("@Url", model.Url);
+
+                    SqlParameter param = new SqlParameter("@Id", SqlDbType.Int);
+                    param.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(param);
+
+                    cmd.ExecuteNonQuery();
+
+                    id = (int)cmd.Parameters["@Id"].Value;
+                }
+                conn.Close();
+            }
+            return id;
         }
     }
 }

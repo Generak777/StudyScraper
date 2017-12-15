@@ -1,3 +1,20 @@
-﻿<div>
-    <h1>This is the Reddit scraper feature</h1>
+﻿<div class="container">
+    <div class="jumbotron" ng-hide="scraperCtrl.loaded">
+        <p class="text-center">Scraping posts! This may take some time...</p>
+    </div>
+    <div class="row">
+        <div ng-repeat="item in scraperCtrl.posts">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col col-md-4">
+
+                <div class="panel panel-default">
+                    <div class="panel-heading"><a target="_blank" href="{{item.postUrl}}">{{item.postTitle}}</a></div>
+                    <div class="panel-body">
+                        <p><span>#{{$index+1}}</span><span class="pull-right"><button class="btn btn-primary" href="" ng-click="scraperCtrl.savePost(item.postTitle, item.postUrl)">Save Post</button></span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>
