@@ -21,7 +21,6 @@
         vm.getAllError = _getAllError;
 
         function _onInit() {
-            console.log("init scraper controller");
             vm.getAll();
         }
 

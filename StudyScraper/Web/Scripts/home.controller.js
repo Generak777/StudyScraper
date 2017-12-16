@@ -12,7 +12,6 @@
         vm.$onInit = _onInit;
 
         function _onInit() {
-            console.log("init home controller");
         }
     }
 })();

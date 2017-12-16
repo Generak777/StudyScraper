@@ -16,7 +16,6 @@
         vm.login = _login;
 
         function _onInit() {
-            console.log("init login controller");
         }
 
         function _login() {

@@ -8,12 +8,12 @@
             <div class="col col-md-4">
 
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a target="_blank" href="{{item.postUrl}}">{{item.postTitle}}</a></div>
-                    <div class="panel-body">
-                        <p><span>#{{$index+1}}</span><span class="pull-right"><button class="btn btn-primary" href="" ng-click="scraperCtrl.savePost(item.postTitle, item.postUrl)">Save Post</button></span></p>
+                    <div class="panel-heading"><a target="_blank" href="{{item.postUrl}}"><strong>{{item.postTitle}}</strong></a></div>
+                    <div class="panel-footer">
+                        <p>#{{$index+1}}<span class="pull-right"><button class="btn btn-primary" href="" ng-click="scraperCtrl.savePost(item.postTitle, item.postUrl)">Save Post</button></span></p>
                     </div>
                 </div>
-
+                
             </div>
         </div>
     </div>
