@@ -19,23 +19,23 @@
 <body>
     <!-- Header/Jumbotron -->
     <div class="container">
-        <span class="pull-right">
-            <button class="btn btn-group" ui-sref="register">Register</button>
-            <button class="btn btn-group" ui-sref="login">Login</button>
+        <span class="pull-right btn-group">
+            <button class="btn btn-default" ui-sref="register">Register</button>
+            <button class="btn btn-primary" ui-sref="login">Login</button>
         </span>
         <div class="jumbotron text-center">
             <h1>Study Scraper</h1>
-            <div class="text-center">
-                <button class="btn btn-group" ui-sref="home">Home</button>
-                <button class="btn btn-group" ui-sref="scraper">Reddit Scraper</button>
-                <button class="btn btn-group" ui-sref="studies">Study APIs</button>
-                <button class="btn btn-group" ui-sref="saved">Saved Studies</button>
+            <div class="text-center btn-group">
+                <button class="btn btn-default" ui-sref="home">Home</button>
+                <button class="btn btn-default" ui-sref="scraper">Reddit Scraper</button>
+                <button class="btn btn-default" ui-sref="studies">Study APIs</button>
+                <button class="btn btn-default" ui-sref="saved">Saved Studies</button>
             </div>
         </div>
 
     </div>
     <!-- main view -->
-    <div ui-view>
+    <div ui-view ng-cloak>
     </div>
     <!-- end main view -->
     <!-- End Header/Jumbotron -->
@@ -51,6 +51,8 @@
     <!-- Angular Services -->
     <script src="/Scripts/login.service.js" type="text/javascript"></script>
     <script src="/Scripts/scraper.service.js" type="text/javascript"></script>
+    <script src="/Scripts/saved.service.js" type="text/javascript"></script>
+
     <!-- Angular Controllers -->
     <script src="/Scripts/home.controller.js" type="text/javascript"></script>
     <script src="/Scripts/register.controller.js" type="text/javascript"></script>

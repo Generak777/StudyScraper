@@ -48,6 +48,7 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedditScraperService.cs" />
+    <Compile Include="SavedService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StudyScraper.Models\StudyScraper.Models.csproj">
