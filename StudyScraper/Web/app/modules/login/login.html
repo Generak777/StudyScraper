@@ -2,12 +2,22 @@
     <div class="row">
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">
+                    <h1 class="panel-title text-center">Register</h1>
+                </div>
                 <div class="panel-body">
-                    <form name="loginForm">
-                        <input type="email" name="email" ng-model="loginCtrl.email" placeholder="Email" />
-                        <input type="password" name="password" ng-model="loginCtrl.password" placeholder="Password" />
-                        <button class="btn btn-default" ng-click="loginCtrl.login()">Login</button>
+                    <form accept-charset="UTF-8" role="form" name="loginForm" ng-submit="loginCtrl.login(loginForm.$valid)" novalidate>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input class="form-control" id="email" name="email" type="email" placeholder="johndoe@gmail.com" ng-model="loginCtrl.userItem.email" required>
+                            <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block red">Email is required.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input class="form-control" id="password" name="password" type="password" placeholder="password" ng-model="loginCtrl.userItem.password" required>
+                            <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block red">Password is required.</p>
+                        </div>
+                        <button class="btn btn-success btn-block" type="submit" ng-disabled="loginForm.$invalid">Register</button>
                     </form>
                 </div>
             </div>

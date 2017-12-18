@@ -26,7 +26,6 @@
                 .catch(vm.registerError);
         }
         function _registerSuccess(res) {
-            console.log(res);
             alert("Registration success!");
             $location.path('login');
         }
