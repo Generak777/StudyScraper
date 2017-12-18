@@ -1,3 +1,28 @@
-﻿<div>
-    <h1>This is the register feature</h1>
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title text-center">Register</h1>
+                </div>
+                <div class="panel-body">
+                    <form accept-charset="UTF-8" role="form" name="registerForm" ng-submit="registerCtrl.register(registerForm.$valid)" novalidate>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input class="form-control" id="email" name="email" type="email" placeholder="johndoe@gmail.com" ng-model="registerCtrl.userItem.email" ng-maxlength="155" required>
+                            <p ng-show="registerForm.email.$error.required" class="help-block red">A valid email address is required.</p>
+                            <p ng-show="registerForm.email.$error.maxlength" class="help-block red">Your email address is too long. Limit 155 characters.</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input class="form-control" id="password" name="password" type="password" placeholder="password" ng-model="registerCtrl.userItem.password" ng-minlength="6" required>
+                            <p ng-show="registerForm.password.$error.required" class="help-block red">Please create a password.</p>
+                            <p ng-show="registerForm.password.$error.minlength" class="help-block red">Your password must be at least 6 characters long.</p>
+                        </div>
+                        <button class="btn btn-success btn-block" type="submit" ng-disabled="registerForm.$invalid">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
