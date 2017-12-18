@@ -243,7 +243,8 @@
     <Content Include="Scripts\saved\saved.service.js" />
     <Content Include="Scripts\scraper\scraper.controller.js" />
     <Content Include="Scripts\scraper\scraper.service.js" />
-    <Content Include="Scripts\study\study.controller.js" />
+    <Content Include="Scripts\studies\studies.controller.js" />
+    <Content Include="Scripts\studies\studies.service.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
