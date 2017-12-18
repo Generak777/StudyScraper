@@ -53,7 +53,7 @@
     <Compile Include="SavedService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StudyScraper.Models\StudyScraper.Models.csproj">
+    <ProjectReference Include="..\Models\StudyScraper.Models.csproj">
       <Project>{c26e32f5-0e87-496b-9e46-06fd5398ef49}</Project>
       <Name>StudyScraper.Models</Name>
     </ProjectReference>

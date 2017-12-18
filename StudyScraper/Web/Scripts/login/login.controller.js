@@ -11,8 +11,7 @@
         vm.$scope = $scope;
         vm.$location = $location;
         vm.$onInit = _onInit;
-        vm.email = "";
-        vm.password = "";
+        vm.userItem = {};
         vm.login = _login;
 
         function _onInit() {
