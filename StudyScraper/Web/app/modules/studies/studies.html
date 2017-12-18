@@ -20,7 +20,7 @@
     <div class="row" ng-repeat="study in studiesCtrl.studies">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><strong># {{$index+1}} - {{study.title}}</strong></div>
+                <div class="panel-heading"><strong># {{$index+1}} - {{study.title}} ({{study.month}}/{{study.day}}/{{study.year}})</strong></div>
                 <div class="panel-body">
                 <a target="_blank" href="https://www.ncbi.nlm.nih.gov/pubmed/?term={{study.pmid}}">{{study.abstract}}</a>
                 </div>
