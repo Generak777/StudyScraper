@@ -12,7 +12,7 @@
         }
 
         function _get(searchTerm) {
-            var url = 'http://nif-services.neuinfo.org/servicesv1/v1/literature/search?q=' + searchTerm;
+            var url = 'http://nif-services.neuinfo.org/servicesv1/v1/literature/search?q=' + searchTerm + '&sort=date';
             return $http.get(url)
                 .then(success)
                 .catch(error);
