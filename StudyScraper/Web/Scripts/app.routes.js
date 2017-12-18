@@ -46,7 +46,7 @@
                 url: '/studies',
                 templateUrl: '/app/modules/studies/studies.html',
                 title: 'Study APIs',
-                controller: 'studyController as studyCtrl'
+                controller: 'studiesController as studiesCtrl'
             })
             .state({
                 name: 'saved',
