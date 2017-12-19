@@ -12,14 +12,14 @@ namespace StudyScraper.Web.Controllers.Api
     [RoutePrefix("api/saved"), AllowAnonymous]
     public class SavedController : ApiController
     {
-        [HttpGet]
-        public HttpResponseMessage GetAll()
+        [Route("user/{id:int}"), HttpGet]
+        public HttpResponseMessage GetAll(int id)
         {
             try
             {
                 ItemsResponse<SavedPost> resp = new ItemsResponse<SavedPost>();
                 SavedService svc = new SavedService();
-                resp.Items = svc.GetAll();
+                resp.Items = svc.GetAll(id);
                 return Request.CreateResponse(HttpStatusCode.OK, resp);
             }
             catch (Exception ex)
