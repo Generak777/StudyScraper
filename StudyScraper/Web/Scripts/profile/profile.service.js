@@ -9,11 +9,19 @@
 
     function ProfileService($http, $q) {
         return {
-            selectById: _selectById
+            selectById: _selectById,
+            updateProfile: _updateProfile
         }
 
         function _selectById(id) {
             return $http.get('api/profile/' + id)
+                .then(success)
+                .catch(error);
+        }
+
+        function _updateProfile(data) {
+            return $http.post('/api/profile/update',
+            data)
                 .then(success)
                 .catch(error);
         }

@@ -1,4 +1,5 @@
-﻿using StudyScraper.Models.ViewModels;
+﻿using StudyScraper.Models.Requests;
+using StudyScraper.Models.ViewModels;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -26,6 +27,25 @@ namespace StudyScraper.Services
                 conn.Close();
             }
             return model;
+        }
+
+        public void Insert(UpdateProfileRequest model)
+        {
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("Profiles_Insert", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UserId", model.UserId);
+                    cmd.Parameters.AddWithValue("@FirstName", model.FirstName);
+                    cmd.Parameters.AddWithValue("@MiddleInitial", model.MiddleInitial);
+                    cmd.Parameters.AddWithValue("@LastName", model.LastName);
+
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
         }
 
         private Profile Mapper(SqlDataReader reader)
