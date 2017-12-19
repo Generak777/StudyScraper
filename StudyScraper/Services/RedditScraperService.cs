@@ -53,6 +53,7 @@ namespace StudyScraper.Services
                 using (SqlCommand cmd = new SqlCommand("RedditPosts_Insert", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UserId", model.UserId);
                     cmd.Parameters.AddWithValue("@Title", model.Title);
                     cmd.Parameters.AddWithValue("@Url", model.Url);
 

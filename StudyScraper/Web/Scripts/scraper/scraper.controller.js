@@ -37,6 +37,7 @@
 
         function _savePost(title, url) {
             var data = {
+                "userId": vm.userCookie.id,
                 "title": title,
                 "url": url
             }

@@ -9,6 +9,7 @@ using System.Web.Http;
 namespace StudyScraper.Web.Controllers.Api
 {
     [RoutePrefix("api/profile")]
+    [AllowAnonymous]
     public class ProfileController : ApiController
     {
         [Route("{id:int}"), HttpGet]

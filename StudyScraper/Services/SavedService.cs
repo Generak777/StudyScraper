@@ -8,7 +8,7 @@ namespace StudyScraper.Services
 {
     public class SavedService : BaseService
     {
-        public List<SavedPost> GetAll()
+        public List<SavedPost> GetAll(int UserId)
         {
             List<SavedPost> postList = new List<SavedPost>();
 
@@ -18,6 +18,7 @@ namespace StudyScraper.Services
                 using (SqlCommand cmd = new SqlCommand("RedditPosts_SelectAll", conn))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UserId", UserId);
                     SqlDataReader reader = cmd.ExecuteReader(CommandBehavior.CloseConnection);
                     while (reader.Read())
                     {

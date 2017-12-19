@@ -43,7 +43,7 @@
         }
 
         function _getAll() {
-            vm.savedService.getAll()
+            vm.savedService.getAll(vm.userCookie.id)
                 .then(vm.getAllSuccess)
                 .catch(vm.getAllError);
         }

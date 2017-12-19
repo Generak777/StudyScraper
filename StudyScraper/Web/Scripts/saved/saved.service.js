@@ -14,8 +14,8 @@
             delete: _delete
         }
 
-        function _getAll() {
-            return $http.get('/api/saved')
+        function _getAll(id) {
+            return $http.get('/api/saved/user/' + id)
                 .then(success)
                 .catch(error);
         }

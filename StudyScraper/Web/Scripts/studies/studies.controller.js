@@ -25,7 +25,6 @@
             vm.userCookie = vm.$cookies.getObject('user');
             //if cookie exists, allow user to hit NCBI API
             if (vm.userCookie) {
-                vm.getAll();
                 //otherwise, redirect to login page
             } else {
                 window.location = '/login';
