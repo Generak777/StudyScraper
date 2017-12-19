@@ -35,6 +35,13 @@
                 controller: 'loginController as loginCtrl'
             })
             .state({
+                name: 'profile',
+                url: '/profile',
+                templateUrl: '/app/modules/profile/profile.html',
+                title: 'Profile',
+                controller: 'profileController as profileCtrl'
+            })
+            .state({
                 name: 'scraper',
                 url: '/scraper',
                 templateUrl: '/app/modules/redditScraper/redditScraper.html',

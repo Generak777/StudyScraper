@@ -52,6 +52,7 @@
     <Compile Include="Responses\ItemResponse.cs" />
     <Compile Include="Responses\ItemsResponse.cs" />
     <Compile Include="Responses\SuccessResponse.cs" />
+    <Compile Include="ViewModels\Profile.cs" />
     <Compile Include="ViewModels\RedditPost.cs" />
     <Compile Include="ViewModels\RedditPosts.cs" />
     <Compile Include="ViewModels\SavedPost.cs" />
