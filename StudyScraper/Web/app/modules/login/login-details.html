@@ -1,0 +1,12 @@
+﻿<span class="pull-right btn-group" ng-hide="$ctrl.loggedIn">
+    <button class="btn btn-default" ui-sref="register">Register</button>
+    <button class="btn btn-primary" ui-sref="login">Login</button>
+</span>
+
+<div class="pull-right dropdown" ng-show="$ctrl.loggedIn">
+    <button href="" data-toggle="dropdown" class="dropdown-toggle btn btn-success">{{$ctrl.userInfo.email}}</button>
+    <ul class="dropdown-menu dropdown-menu-scale user-dropdown">
+        <li><a href="" ui-sref="profile">Profile</a></li>
+        <li><a href="" ng-click="$ctrl.logout()">Logout</a></li>
+    </ul>
+</div>

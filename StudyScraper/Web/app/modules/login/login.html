@@ -3,7 +3,7 @@
         <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h1 class="panel-title text-center">Register</h1>
+                    <h1 class="panel-title text-center">Login</h1>
                 </div>
                 <div class="panel-body">
                     <form accept-charset="UTF-8" role="form" name="loginForm" ng-submit="loginCtrl.login(loginForm.$valid)" novalidate>
@@ -15,9 +15,9 @@
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input class="form-control" id="password" name="password" type="password" placeholder="password" ng-model="loginCtrl.userItem.password" required>
-                            <p ng-show="loginForm.email.$invalid && !loginForm.email.$pristine" class="help-block red">Password is required.</p>
+                            <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block red">Password is required.</p>
                         </div>
-                        <button class="btn btn-success btn-block" type="submit" ng-disabled="loginForm.$invalid">Register</button>
+                        <button class="btn btn-success btn-block" type="submit" ng-disabled="loginForm.$invalid">Login</button>
                     </form>
                 </div>
             </div>
