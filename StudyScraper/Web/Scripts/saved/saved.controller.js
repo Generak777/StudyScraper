@@ -4,12 +4,15 @@
     angular.module("app")
         .controller("savedController", SavedController);
 
-    SavedController.$inject = ["$scope", "savedService"];
+    SavedController.$inject = ["$scope", "$location", "$cookies", "savedService"];
 
-    function SavedController($scope, SavedService) {
+    function SavedController($scope, $location, $cookies, SavedService) {
         var vm = this;
         vm.$scope = $scope;
+        vm.$location = $location;
+        vm.$cookies = $cookies;
         vm.savedService = SavedService;
+        vm.userCookie = null;
         vm.loaded = false;
         vm.posts = [];
         vm.updateData = {};
@@ -28,7 +31,15 @@
         vm.deleteError = _deleteError;
 
         function _onInit() {
-            vm.getAll();
+            //check for user cookie
+            vm.userCookie = vm.$cookies.getObject('user');
+            //if cookie exists, init scraper
+            if (vm.userCookie) {
+                vm.getAll();
+            //otherwise, redirect to login page
+            } else {
+                window.location = '/login';
+            }
         }
 
         function _getAll() {

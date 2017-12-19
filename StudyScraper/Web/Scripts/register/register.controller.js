@@ -4,11 +4,14 @@
     angular.module("app")
         .controller("registerController", RegisterController);
 
-    RegisterController.$inject = ["$scope", "$location", "registerService"];
+    RegisterController.$inject = ["$scope", "$location", "$cookies", "registerService"];
 
-    function RegisterController($scope, $location, RegisterService) {
+    function RegisterController($scope, $location, $cookies, RegisterService) {
         var vm = this;
         vm.$scope = $scope;
+        vm.$location = $location;
+        vm.$cookies = $cookies;
+        vm.userCookie = null;
         vm.userItem = {};
         vm.$onInit = _onInit;
         vm.registerService = RegisterService;
@@ -17,7 +20,13 @@
         vm.registerError = _registerError;
 
         function _onInit() {
-            console.log("init register controller");
+            //check for user cookie
+            vm.userCookie = vm.$cookies.getObject('user');
+            //if cookie exists, redirect user to home page
+            if (vm.userCookie) {
+                window.location = '/home';
+                //otherwise, do nothing
+            }
         }
 
         function _register() {
@@ -27,7 +36,7 @@
         }
         function _registerSuccess(res) {
             alert("Registration success!");
-            $location.path('login');
+            vm.$location.path('login');
         }
         function _registerError(res) {
             console.log(res);
