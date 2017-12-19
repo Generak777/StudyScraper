@@ -19,10 +19,7 @@
 <body>
     <!-- Header/Jumbotron -->
     <div class="container">
-        <span class="pull-right btn-group">
-            <button class="btn btn-default" ui-sref="register">Register</button>
-            <button class="btn btn-primary" ui-sref="login">Login</button>
-        </span>
+        <login-details></login-details>
         <div class="jumbotron text-center">
             <h1>Study Scraper</h1>
             <div class="text-center btn-group">
@@ -44,6 +41,8 @@
     <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
     <!-- AngularJS -->
     <script src="/bower_components/angular/angular.js" type="text/javascript"></script>
+    <!-- Angular-Cookies -->
+    <script src="/bower_components/angular-cookies/angular-cookies.js"></script>
     <!-- Angular UI Router -->
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js" type="text/javascript"></script>
     <!-- Main Angular File -->
@@ -58,6 +57,7 @@
     <script src="/Scripts/home/home.controller.js" type="text/javascript"></script>
     <script src="/Scripts/register/register.controller.js" type="text/javascript"></script>
     <script src="/Scripts/login/login.controller.js" type="text/javascript"></script>
+    <script src="/Scripts/login/login-details.component.js" type="text/javascript"></script>
     <script src="/Scripts/scraper/scraper.controller.js" type="text/javascript"></script>
     <script src="/Scripts/saved/saved.controller.js" type="text/javascript"></script>
     <script src="/Scripts/studies/studies.controller.js" type="text/javascript"></script>

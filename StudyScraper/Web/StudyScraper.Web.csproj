@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\LoginController.cs" />
     <Compile Include="Controllers\Api\RegisterController.cs" />
     <Compile Include="Controllers\Api\SavedController.cs" />
     <Compile Include="Controllers\Api\ScraperController.cs" />
@@ -215,6 +216,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\modules\login\login-details.html" />
     <Content Include="app\modules\login\login.html" />
     <Content Include="app\modules\redditScraper\redditScraper.html" />
     <Content Include="app\modules\register\register.html" />
@@ -235,6 +237,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\login\login-details.component.js" />
     <Content Include="Scripts\login\login.controller.js" />
     <Content Include="Scripts\login\login.service.js" />
     <Content Include="Scripts\register\register.controller.js" />
