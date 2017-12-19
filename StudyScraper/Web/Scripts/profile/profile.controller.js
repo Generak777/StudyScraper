@@ -15,7 +15,12 @@
         vm.profileService = ProfileService;
         vm.userCookie = null;
         vm.profileInfo = {};
+        vm.updateData = {};
         vm.$onInit = _onInit;
+        vm.showUpdateModal = _showUpdateModal;
+        vm.updateProfile = _updateProfile;
+        vm.updateProfileSuccess = _updateProfileSuccess;
+        vm.updateProfileError = _updateProfileError;
         vm.getProfile = _getProfile;
         vm.getProfileSuccess = _getProfileSuccess;
         vm.getProfileError = _getProfileError;
@@ -32,6 +37,31 @@
             }
         }
 
+        function _showUpdateModal() {
+            vm.updateData.userId = vm.userCookie.id;
+            vm.updateData.firstName = vm.profileInfo.firstName;
+            vm.updateData.middleInitial = vm.profileInfo.middleInitial;
+            vm.updateData.lastName = vm.profileInfo.lastName;
+            $('#updateModal').modal('show');
+        }
+
+        function _updateProfile() {
+            vm.profileService.updateProfile(vm.updateData)
+                .then(vm.updateProfileSuccess)
+                .catch(vm.updateProfileError);
+        }
+
+        function _updateProfileSuccess(res) {
+            $('#updateModal').modal('hide');
+            vm.updateData = {};
+            vm.getProfile(vm.userCookie.id);
+        }
+
+        function _updateProfileError(err) {
+            alert("Failed to update profile!");
+            console.log(err);
+        }
+
         function _getProfile(id) {
             vm.profileService.selectById(id)
                 .then(vm.getProfileSuccess)
@@ -39,7 +69,10 @@
         }
 
         function _getProfileSuccess(res) {
-            console.log(res);
+            vm.profileInfo = res.data.item;
+            if (vm.profileInfo.middleInitial === (' ' || '')) {
+                vm.profileInfo.middleInitial = null;
+            }
         }
 
         function _getProfileError(err) {

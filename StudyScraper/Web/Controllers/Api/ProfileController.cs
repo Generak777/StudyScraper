@@ -1,4 +1,5 @@
-﻿using StudyScraper.Models.Responses;
+﻿using StudyScraper.Models.Requests;
+using StudyScraper.Models.Responses;
 using StudyScraper.Models.ViewModels;
 using StudyScraper.Services;
 using System;
@@ -20,6 +21,26 @@ namespace StudyScraper.Web.Controllers.Api
                 ItemResponse<Profile> resp = new ItemResponse<Profile>();
                 ProfilesService svc = new ProfilesService();
                 resp.Item = svc.SelectById(id);
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
+        [Route("update"), HttpPost]
+        public HttpResponseMessage Insert(UpdateProfileRequest model)
+        {
+            if(!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            try
+            {
+                SuccessResponse resp = new SuccessResponse();
+                ProfilesService svc = new ProfilesService();
+                svc.Insert(model);
                 return Request.CreateResponse(HttpStatusCode.OK, resp);
             }
             catch (Exception ex)

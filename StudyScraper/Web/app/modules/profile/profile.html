@@ -1,3 +1,63 @@
-﻿<div>
-    <h1>This is the profile page</h1>
+﻿<div class="container">
+    <div class="row">
+        <!-- user picture -->
+        <div class="col-md-3">
+            <div class="panel panel-default">
+                <div class="panel-heading">Profile Picture</div>
+                <div class="panel-body">
+                    File upload feature will go here
+                </div>
+            </div>
+        </div>
+        <!-- user info -->
+        <div class="col-md-8 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Profile Info<span class="pull-right"><button class="btn btn-sm btn-default" ng-click="profileCtrl.showUpdateModal()">Update Info</button></span></div>
+                <div class="panel-body">
+                    <p><strong>Email Address: </strong>{{profileCtrl.userCookie.email}}</p>
+                    <p ng-hide="!profileCtrl.profileInfo.firstName"><strong>First Name: </strong>{{profileCtrl.profileInfo.firstName}}</p>
+                    <p ng-hide="!profileCtrl.profileInfo.middleInitial"><strong>Middle initial: </strong>{{profileCtrl.profileInfo.middleInitial}}</p>
+                    <p ng-hide="!profileCtrl.profileInfo.lastName"><strong>Last Name: </strong>{{profileCtrl.profileInfo.lastName}}</p>
+                    <p ng-show="!profileCtrl.profileInfo.firstName">No other info to display! Update your profile info via the button to the top right.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- update modal -->
+<div class="modal fade" id="updateModal" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Update Profile Info</h4>
+            </div>
+            <div class="modal-body">
+                <form name="profileForm" ng-submit="profileCtrl.updateProfile(profileForm.$valid)" novalidate>
+                    <div class="form-group">
+                        <label for="firstName">First Name*</label>
+                        <input id="firstName" name="firstname" type="text" class="form-control" ng-maxlength="50" ng-model="profileCtrl.updateData.firstName" required />
+                        <p ng-show="profileForm.firstname.$error.required" class="help-block red">Your first name is required.</p>
+                        <p ng-show="profileForm.firstname.$error.maxlength" class="help-block red">I don't know how this is possible, but your first name is too long. What's your nickname?</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleInitial">Middle Initial</label>
+                        <input id="middleInitial" name="middleinitial" type="text" class="form-control" maxlength="1" ng-model="profileCtrl.updateData.middleInitial" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name*</label>
+                        <input id="lastName" name="lastname" type="text" class="form-control" ng-maxlength="50" ng-model="profileCtrl.updateData.lastName" required />
+                        <p ng-show="profileForm.firstname.$error.required" class="help-block red">Your last name is required.</p>
+                        <p ng-show="profileForm.firstname.$error.maxlength" class="help-block red">I don't know how this is possible, but your last name is too long. Limit 50 characters.</p>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-success btn-block" ng-disabled="profileForm.$invalid">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
 </div>
