@@ -4,7 +4,6 @@ using StudyScraper.Services;
 using System;
 using System.Net;
 using System.Net.Http;
-using System.Web.ApplicationServices;
 using System.Web.Http;
 
 namespace StudyScraper.Web.Controllers.Api

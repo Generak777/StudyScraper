@@ -4,12 +4,15 @@
     angular.module("app")
         .controller("studiesController", StudiesController);
 
-    StudiesController.$inject = ["$scope", "studiesService"];
+    StudiesController.$inject = ["$scope", "$location", "$cookies", "studiesService"];
 
-    function StudiesController($scope, StudiesService) {
+    function StudiesController($scope, $location, $cookies, StudiesService) {
         var vm = this;
         vm.$scope = $scope;
+        vm.$location = $location;
+        vm.$cookies = $cookies;
         vm.studiesService = StudiesService;
+        vm.userCookie = null;
         vm.studies = [];
         vm.searchTerm = "";
         vm.$onInit = _onInit;
@@ -18,6 +21,15 @@
         vm.getStudiesError = _getStudiesError;
 
         function _onInit() {
+            //check for user cookie
+            vm.userCookie = vm.$cookies.getObject('user');
+            //if cookie exists, allow user to hit NCBI API
+            if (vm.userCookie) {
+                vm.getAll();
+                //otherwise, redirect to login page
+            } else {
+                window.location = '/login';
+            }
         }
 
         function _getStudies() {

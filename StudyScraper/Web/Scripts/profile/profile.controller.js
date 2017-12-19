@@ -28,7 +28,7 @@
                 vm.getProfile(vm.userCookie.id);
             //otherwise, redirect to login page
             } else {
-                vm.$location.path('login');
+                window.location = '/login';
             }
         }
 
