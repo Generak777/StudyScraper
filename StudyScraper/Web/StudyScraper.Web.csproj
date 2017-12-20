@@ -226,6 +226,7 @@
     <Content Include="app\modules\studies\studies.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="app\index.html" />
+    <Content Include="Scripts\fileUpload\fileUpload.directive.js" />
     <Content Include="Scripts\home\home.controller.js" />
     <Content Include="app\modules\home\home.html" />
     <Content Include="Scripts\app.routes.js" />
