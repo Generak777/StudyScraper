@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\ForgotPassword.cs" />
     <Compile Include="Domain\LoginData.cs" />
+    <Compile Include="Domain\SingleRecipientEmail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requests\LoginRequest.cs" />
     <Compile Include="Requests\RegisterRequest.cs" />

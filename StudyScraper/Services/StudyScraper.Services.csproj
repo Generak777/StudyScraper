@@ -47,6 +47,8 @@
   <ItemGroup>
     <Compile Include="BaseService.cs" />
     <Compile Include="CryptographyService.cs" />
+    <Compile Include="ForgotPasswordService.cs" />
+    <Compile Include="GenerateForgotPasswordTokenService.cs" />
     <Compile Include="LoginService.cs" />
     <Compile Include="ProfilesService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
