@@ -16,8 +16,13 @@
         vm.userCookie = null;
         vm.profileInfo = {};
         vm.updateData = {};
+        vm.newPassword = null;
         vm.$onInit = _onInit;
         vm.showUpdateModal = _showUpdateModal;
+        vm.showChangePasswordModal = _showChangePasswordModal;
+        vm.changePassword = _changePassword;
+        vm.changePasswordSuccess = _changePasswordSuccess;
+        vm.changePasswordError = _changePasswordError;
         vm.updateProfile = _updateProfile;
         vm.updateProfileSuccess = _updateProfileSuccess;
         vm.updateProfileError = _updateProfileError;
@@ -43,6 +48,40 @@
             vm.updateData.middleInitial = vm.profileInfo.middleInitial;
             vm.updateData.lastName = vm.profileInfo.lastName;
             $('#updateModal').modal('show');
+        }
+
+        function _showChangePasswordModal() {
+            vm.origPass = null;
+            vm.newPassword = null;
+            vm.confirmPass = null;
+            $('#passwordModal').modal('show');
+        }
+
+        function _changePassword() {
+            var data = {
+                "userId": vm.userCookie.id,
+                "newPassword": vm.newPassword
+            }
+            vm.profileService.changePassword(data)
+                .then(vm.changePasswordSuccess)
+                .catch(vm.changePasswordError);
+        }
+
+        function _changePasswordSuccess(res) {
+            vm.origPass = null;
+            vm.newPassword = null;
+            vm.confirmPass = null;
+            $('#passwordModal').modal('hide');
+            alert("Password updated!");
+            console.log(res);
+        }
+
+        function _changePasswordError(err) {
+            vm.origPass = null;
+            vm.newPassword = null;
+            vm.confirmPass = null;
+            alert("Failed to change password!");
+            $('#passwordModal').modal('hide');
         }
 
         function _updateProfile() {

@@ -25,7 +25,7 @@
             //if cookie exists, redirect user to home page
             if (vm.userCookie) {
                 window.location = '/home';
-            //otherwise, do nothing
+                //otherwise, do nothing
             }
         }
 
@@ -37,8 +37,13 @@
 
         function _loginSuccess(res) {
             var obj = res.data;
-            vm.$cookies.putObject("user", obj);
-            window.location ='/home';
+            if (obj.isLoggedIn === true) {
+                vm.$cookies.putObject("user", obj);
+                window.location = '/home';
+            } else if (obj.isLoggedIn === false) {
+                alert("Failed to login! Username or password incorrect.");
+            }
+
         }
 
         function _loginError(err) {

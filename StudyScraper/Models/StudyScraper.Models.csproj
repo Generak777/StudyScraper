@@ -46,6 +46,7 @@
     <Compile Include="Requests\LoginRequest.cs" />
     <Compile Include="Requests\RegisterRequest.cs" />
     <Compile Include="Requests\SavePostRequest.cs" />
+    <Compile Include="Requests\UpdatePasswordRequest.cs" />
     <Compile Include="Requests\UpdatePostRequest.cs" />
     <Compile Include="Requests\UpdateProfileRequest.cs" />
     <Compile Include="Responses\BaseResponse.cs" />

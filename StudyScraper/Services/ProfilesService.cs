@@ -48,6 +48,28 @@ namespace StudyScraper.Services
             }
         }
 
+        public void ChangePassword(UpdatePasswordRequest model)
+        {
+            CryptographyService svc = new CryptographyService();
+            string salt = svc.GenerateRandomString(16);
+            string hashedPassword = svc.Hash(model.NewPassword, salt);
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand("Users_ChangePassword", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Id", model.UserId);
+                    cmd.Parameters.AddWithValue("@HashedPassword", hashedPassword);
+                    cmd.Parameters.AddWithValue("@Salt", salt);
+
+                    cmd.ExecuteNonQuery();
+                };
+                conn.Close();
+            }
+        }
+
         private Profile Mapper(SqlDataReader reader)
         {
             Profile model = new Profile();

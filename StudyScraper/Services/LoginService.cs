@@ -42,6 +42,12 @@ namespace StudyScraper.Services
                 }
                 conn.Close();
             }
+            if (res.IsLoggedIn == false)
+            {
+                res.Id = 0;
+                res.Email = "Failed to login";
+                return res;
+            }
             return res;
         }
 
