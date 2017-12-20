@@ -49,5 +49,25 @@ namespace StudyScraper.Web.Controllers.Api
             }
         }
 
+        [Route("changePassword"), HttpPut]
+        public HttpResponseMessage UpdatePassword(UpdatePasswordRequest model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            try
+            {
+                SuccessResponse resp = new SuccessResponse();
+                ProfilesService svc = new ProfilesService();
+                svc.ChangePassword(model);
+                return Request.CreateResponse(HttpStatusCode.OK, resp);
+            }
+            catch (Exception ex)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex.Message);
+            }
+        }
+
     }
 }

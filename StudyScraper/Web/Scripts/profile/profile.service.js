@@ -10,7 +10,8 @@
     function ProfileService($http, $q) {
         return {
             selectById: _selectById,
-            updateProfile: _updateProfile
+            updateProfile: _updateProfile,
+            changePassword: _changePassword
         }
 
         function _selectById(id) {
@@ -21,7 +22,14 @@
 
         function _updateProfile(data) {
             return $http.post('/api/profile/update',
-            data)
+                data)
+                .then(success)
+                .catch(error);
+        }
+
+        function _changePassword(data) {
+            return $http.put('api/profile/changePassword',
+                data)
                 .then(success)
                 .catch(error);
         }
