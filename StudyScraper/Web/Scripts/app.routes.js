@@ -35,6 +35,13 @@
                 controller: 'loginController as loginCtrl'
             })
             .state({
+                name: 'forgotPassword',
+                url: '/forgotPassword',
+                templateUrl: '/app/modules/forgotPassword/forgotPassword.html',
+                title: 'Forgot Password',
+                controller: 'forgotPasswordController as forgotPassCtrl'
+            })
+            .state({
                 name: 'profile',
                 url: '/profile',
                 templateUrl: '/app/modules/profile/profile.html',

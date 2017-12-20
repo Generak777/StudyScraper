@@ -200,6 +200,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Api\ForgotPasswordController.cs" />
     <Compile Include="Controllers\Api\LoginController.cs" />
     <Compile Include="Controllers\Api\ProfileController.cs" />
     <Compile Include="Controllers\Api\RegisterController.cs" />
@@ -217,6 +218,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\modules\forgotPassword\forgotPassword.html" />
     <Content Include="app\modules\login\login-details.html" />
     <Content Include="app\modules\login\login.html" />
     <Content Include="app\modules\profile\profile.html" />
@@ -226,6 +228,7 @@
     <Content Include="app\modules\studies\studies.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="app\index.html" />
+    <Content Include="Scripts\forgotPassword\forgotPassword.service.js" />
     <Content Include="Scripts\home\home.controller.js" />
     <Content Include="app\modules\home\home.html" />
     <Content Include="Scripts\app.routes.js" />
@@ -302,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Scripts\forgotPassword\forgotPassword.controller.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Models\StudyScraper.Models.csproj">

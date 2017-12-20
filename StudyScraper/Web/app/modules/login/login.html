@@ -18,7 +18,19 @@
                             <p ng-show="loginForm.password.$invalid && !loginForm.password.$pristine" class="help-block red">Password is required.</p>
                         </div>
                         <button class="btn btn-success btn-block" type="submit" ng-disabled="loginForm.$invalid">Login</button>
+                        <br />
+                        <p class="text-center"><a href="" ui-sref="forgotPassword">Forgot your password?</a></p>
                     </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h1 class="panel-title text-center">Not a user?</h1>
+                </div>
+                <div class="panel-body">
+                    <p class="text-center"><a href="" ui-sref="register">Register here!</a></p>
                 </div>
             </div>
         </div>
